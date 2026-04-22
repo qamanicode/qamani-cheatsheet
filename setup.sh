@@ -37,7 +37,7 @@ cat > Dockerfile << 'EOF'
 FROM alpine:latest
 RUN apk update && apk upgrade && apk add --no-cache \
     bash nano git python3 py3-pip curl wget \
-    nginx mariadb mariadb-client docker kubectl ufw htop rsync tar helm terraform ansible
+    nginx mariadb mariadb-client docker kubectl ufw htop rsync tar helm ansible
 WORKDIR /opt/qamani
 COPY scripts/ ./scripts/
 COPY README.md .
