@@ -2,11 +2,18 @@
 # QAMANI Project Setup Script
 # يجمع كل ما أنجزناه ويجهز المشروع للرفع على GitHub
 
-# 1️⃣ تثبيت الأدوات الأساسية
+# 1️⃣ تثبيت الأدوات الأساسية (بدون Terraform)
 apk update && apk upgrade
 apk add nano git python3 py3-pip curl wget \
     nginx mariadb mariadb-client docker kubectl ufw htop rsync tar \
-    helm terraform ansible
+    helm ansible unzip
+
+# 2️⃣ تثبيت Terraform يدويًا
+wget https://releases.hashicorp.com/terraform/1.9.0/terraform_1.9.0_linux_amd64.zip
+unzip terraform_1.9.0_linux_amd64.zip
+mv terraform /usr/local/bin/
+rm terraform_1.9.0_linux_amd64.zip
+
 
 # 2️⃣ إنشاء هيكل المشروع
 mkdir -p qamani-cheatsheet/{scripts,examples,charts/qamani/templates,ansible/roles/qamani-role/{tasks,handlers,vars},.github/workflows}
